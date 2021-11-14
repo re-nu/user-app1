@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.user-container{
+  display: flex;
+  flex-direction: row;
+  margin: 1.5rem;
+  background-color: cadetblue;
+  padding: 1.5rem;
+  width: 40rem;
+  margin-left: 10rem;
+}
+img{
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user-name{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.icon-buttons{
+  display: flex;
+  margin-left: auto;
+  align-items: flex-end;
+}
