@@ -1,6 +1,10 @@
 //import { UserLayout } from './UserLayout';
 
 import { useState } from "react";
+import { useHistory } from "react-router";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
 
 export function UserList({ Cusers , setuser}) {
   return (
@@ -20,18 +24,18 @@ export function UserList({ Cusers , setuser}) {
   );
 }
  
-function UserLayout({name,avatar,email,number,place,id,Cusers,setuser}) {
-  const [hide,sethide]=useState(false);
-  const styl={display:hide?"block":"none"}
+ function UserLayout({name,avatar,email,number,place,id,Cusers,setuser}) {
+      const [hide,sethide]=useState(false);
+      const styl={display:hide?"block":"none"}
 
-  const deleteUsr= ()=>{
-    const remainingUsr = Cusers.filter((i,index)=>index!==id);
-    setuser(remainingUsr);
-    console.log(remainingUsr);
-  }
+    const deleteUsr= ()=>{
+      const remainingUsr = Cusers.filter((i,index)=>index!==id);
+      setuser(remainingUsr);
+      console.log(remainingUsr);
+    }
 
-  
-  return(
+   const history=useHistory();
+   return(
     <div className="user-container">
        <div className="user-img">
          <img src={avatar} alt={name}/>
@@ -48,21 +52,18 @@ function UserLayout({name,avatar,email,number,place,id,Cusers,setuser}) {
            </div>
        </div>
        <div className="icon-buttons">
-           <button onClick>edit</button>
-           <button onClick={deleteUsr}>delete</button>
+           <IconButton
+             onClick ={()=>history.push("/edit-user/"+id)}
+            aria-label="delete">
+               <ModeEditOutlineTwoToneIcon />
+            </IconButton>
+           <IconButton
+           onClick={deleteUsr}
+            aria-label="delete">
+               <DeleteIcon />
+            </IconButton>
          </div>
     </div>
   );
-}
+  }
 
-function Edit({Cusers,setuser}) {
-
-  return(
-      <div className="edit">
-         <input placeholder="name"></input>
-         <input placeholder="name"></input>
-         <input placeholder="name"></input>
-         <input placeholder="name"></input>
-      </div>
-  );
-}

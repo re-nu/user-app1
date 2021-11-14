@@ -1,9 +1,11 @@
 //import logo from './logo.svg';
 import './App.css';
-//import { Switch, Route, Link , useParams} from 'react-router-dom';
-import { useState } from 'react';
+import { Switch, Route, Link} from 'react-router-dom';
+import { useState, } from 'react';
 //import {Button, IconButton,InfoTwoTone,EmailIcon,} from '@mui/material';
 import { UserList } from './UserList';
+import { AddUser } from './AddUser';
+import { Edit } from './Edit';
 
 function App() {
   const users=[
@@ -61,35 +63,29 @@ function App() {
   console.log(Cusrers)
   return (
     <div className="App">
-      <AddUser Cusrers={Cusrers} setuser={setuser}/> 
-       <UserList Cusers={Cusrers} setuser={setuser}/>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/users">User List</Link>
+        <Link to="/creat-user">Create User</Link>
+        <Link to="/edit-user/:id">Edit User </Link>
+      </nav>
+      <Switch>
+        <Route exact path="/">welcome to home page</Route>
+        <Route path="/users">
+          user List page
+          <UserList Cusers={Cusrers} setuser={setuser}/>
+          </Route>
+        <Route path="/creat-user">
+          add new user page 
+           <AddUser Cusrers={Cusrers} setuser={setuser}/> 
+        </Route>
+        <Route path="/edit-user/:id">
+          edit user page
+          <Edit Cusers={Cusrers} setuser={setuser}/>
+          </Route>
+      </Switch>
     </div>
   );  
 }
 
-function AddUser({Cusrers,setuser}) {
-  const [name,setName]=useState("");
-  const [pic,setPic]=useState("");
-  const [email,setEmail]=useState("");
-  const [number,setNumber]=useState("");
-  const [place,setPlace]=useState("");
-
-  const newUser={
-    name:name,
-    avatar:pic,
-    number:number,
-    email:email,
-    place:place
-  }
-  return(
-    <div className="add-user">
-      <input placeholder="name" onChange={(e)=>setName(e.target.value)} />
-      <input placeholder="image" onChange={(e)=>setPic(e.target.value)} />
-      <input placeholder="email" onChange={(e)=>setEmail(e.target.value)}/>
-      <input placeholder="number" onChange={(e)=>setNumber(e.target.value)}/>
-      <input placeholder="place"  onChange={(e)=>setPlace(e.target.value)}/>
-      <button onClick={()=>setuser([...Cusrers,newUser])}>add user</button>
-    </div>
-  );
-}
 export default App;
