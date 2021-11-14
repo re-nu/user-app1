@@ -1,11 +1,19 @@
 //import logo from './logo.svg';
 import './App.css';
-import { Switch, Route, Link} from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import { useState, } from 'react';
-//import {Button, IconButton,InfoTwoTone,EmailIcon,} from '@mui/material';
+import { useHistory } from 'react-router';
+import HomeIcon from '@mui/icons-material/Home';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import GroupIcon from '@mui/icons-material/Group';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { UserList } from './UserList';
 import { AddUser } from './AddUser';
 import { Edit } from './Edit';
+import { Profile } from './Profile';
 
 function App() {
   const users=[
@@ -60,32 +68,59 @@ function App() {
     }
   ]
   const [Cusrers,setuser]=useState(users)
-  console.log(Cusrers)
+  console.log(Cusrers);
+  const history=useHistory();
   return (
     <div className="App">
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/users">User List</Link>
-        <Link to="/creat-user">Create User</Link>
-        <Link to="/edit-user/:id">Edit User </Link>
-      </nav>
+      <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar variant="dense">
+          <IconButton 
+          onClick={()=>history.push("/")}
+          edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <HomeIcon />
+          </IconButton>
+          <IconButton 
+          onClick={()=>history.push("/users")}
+          edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <GroupIcon />
+          </IconButton>
+          <IconButton 
+          onClick={()=>history.push("/creat-user")}
+          edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <PersonAddIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    </Box>
       <Switch>
-        <Route exact path="/">welcome to home page</Route>
+        <Route exact path="/">
+          <Home/>
+          </Route>
         <Route path="/users">
-          user List page
           <UserList Cusers={Cusrers} setuser={setuser}/>
           </Route>
-        <Route path="/creat-user">
-          add new user page 
+        <Route path="/creat-user"> 
            <AddUser Cusrers={Cusrers} setuser={setuser}/> 
         </Route>
         <Route path="/edit-user/:id">
-          edit user page
           <Edit Cusers={Cusrers} setuser={setuser}/>
+          </Route>
+          <Route path="/profile/:id">
+            <Profile Cusers={Cusrers}/>
           </Route>
       </Switch>
     </div>
   );  
 }
+function Home(params) {
+  return(
+    <div className="home">
+      <img className="home-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbkNkZ6a95HKR75PQqxYkK1rXhX33IyxPN6A&usqp=CAU"
+         alt="welcome"/>
+    </div>
+    
+    );
 
+}
 export default App;

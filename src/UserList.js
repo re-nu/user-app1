@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
+import InfoIcon from '@mui/icons-material/Info';
 
 export function UserList({ Cusers , setuser}) {
   return (
@@ -43,7 +44,14 @@ export function UserList({ Cusers , setuser}) {
        <div>
           <div className="user-name">
             <h1>{name}</h1>
-            <button onClick={()=>(sethide(!hide))}>info</button>
+            <IconButton
+             onClick={()=>{
+               (sethide(!hide));
+               history.push("/profile/"+id)
+              }}
+            aria-label="delete">
+               < InfoIcon/>
+            </IconButton>
            </div>
            <div className="hidden" style={styl}>
              <p>{email}</p>

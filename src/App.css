@@ -41,12 +41,12 @@
   display: flex;
   flex-direction: row;
   margin: 1.5rem;
-  background-color: cadetblue;
+  background-color:rgb(229, 238, 245);
   padding: 1.5rem;
   width: 40rem;
   margin-left: 10rem;
 }
-img{
+.user-img{
   border-radius: 50%;
   object-fit: cover;
 }
@@ -67,4 +67,26 @@ img{
   margin: 1.5rem;
   padding: 1.5rem;
   gap: 1.5em;
+}
+.profile{
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem;
+
+}
+.home{
+  height: 100vh;
+  background-image:url( "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbkNkZ6a95HKR75PQqxYkK1rXhX33IyxPN6A&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.home-img{
+  height:50%;
+}
+.all-users{
+  background-color: rgb(197, 225, 241);
+  padding: 1.5rem;
 }

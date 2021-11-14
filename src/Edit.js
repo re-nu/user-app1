@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useHistory } from "react-router";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
+import UpdateIcon from '@mui/icons-material/Update';
 
 export function Edit({ Cusers, setuser }) {
   //console.log(Cusers);
@@ -56,7 +56,7 @@ export function Edit({ Cusers, setuser }) {
       id="filled-basic" label="Filled" variant="filled" />
       <Button
       onClick={edit}
-       variant="outlined" startIcon={<PublishedWithChangesIcon  />}>
+       variant="contained" startIcon={<UpdateIcon/>}>
          Save the changes
       </Button>
     </div>
