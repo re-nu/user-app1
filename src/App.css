@@ -64,29 +64,27 @@
 .add-user,.edit-user{
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 2.5rem;
   gap: 1.5em;
   background-color: rgb(220, 233, 241);
+  padding-top: 5rem;
 }
 .profile{
   display: flex;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 2.5rem;
   background-color: rgb(220, 233, 241);
+  padding-top: 5rem;
 
 }
 .home{
   height: 100vh;
-  background-image:url( "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbkNkZ6a95HKR75PQqxYkK1rXhX33IyxPN6A&usqp=CAU");
+  background-image:url( "https://www.cyanous.com/img/generalstaf.gif");
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-    align-items: center;
-    justify-content: space-around;
+  object-fit: cover;
 }
-.home-img{
-  height:50%;
-}
+
 .all-users{
   background-color: rgb(210, 232, 245);
   padding: 1.5rem;
