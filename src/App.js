@@ -73,7 +73,7 @@ function App() {
   return (
     <div className="App">
       <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar variant="dense">
           <IconButton 
           onClick={()=>history.push("/")}
@@ -116,8 +116,6 @@ function App() {
 function Home(params) {
   return(
     <div className="home">
-      <img className="home-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbkNkZ6a95HKR75PQqxYkK1rXhX33IyxPN6A&usqp=CAU"
-         alt="welcome"/>
     </div>
     
     );
